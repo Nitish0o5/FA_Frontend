@@ -35,9 +35,14 @@ export const MovieProvider = ({ children }) => {
 
   // Refresh all data collections
   const refreshData = useCallback(async () => {
-    if (!token) return;
     try {
-      // Sync first (optionally, but let's make sure collections are fetched)
+      // Sync first
+      try {
+        await api.syncData();
+      } catch (syncErr) {
+        console.warn("Auto-sync failed:", syncErr.message || syncErr);
+      }
+
       const [s, c, d, a, i, placementStats, deptStats, companyStats] = await Promise.all([
         api.getStudents({ limit: 1000 }),
         api.getCompanies({ limit: 1000 }),
@@ -69,7 +74,7 @@ export const MovieProvider = ({ children }) => {
     } catch (err) {
       console.error("Error refreshing data:", err.message || err);
     }
-  }, [token]);
+  }, []);
 
   // Auth check on mount or when token changes
   useEffect(() => {
@@ -80,8 +85,6 @@ export const MovieProvider = ({ children }) => {
           api.setAuthToken(token);
           const userData = await api.getMe();
           setUser(userData);
-          // Trigger data reload
-          await refreshData();
         } catch (err) {
           console.error("Token invalid, logging out:", err.message || err);
           setUser(null);
@@ -91,6 +94,9 @@ export const MovieProvider = ({ children }) => {
       } else {
         setUser(null);
       }
+      
+      // Load data always!
+      await refreshData();
       setLoading(false);
     };
 
