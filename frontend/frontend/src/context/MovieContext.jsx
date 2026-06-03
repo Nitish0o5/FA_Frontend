@@ -120,7 +120,6 @@ export const MovieProvider = ({ children }) => {
 
   // User Authentication
   const loginUser = async (email, password) => {
-    setLoading(true);
     try {
       const res = await api.login(email, password);
       if (res.token) {
@@ -132,8 +131,6 @@ export const MovieProvider = ({ children }) => {
       return { success: false, error: "Invalid credentials" };
     } catch (err) {
       return { success: false, error: err.response?.data?.message || err.message || "Login failed" };
-    } finally {
-      setLoading(false);
     }
   };
 
