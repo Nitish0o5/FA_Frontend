@@ -33,7 +33,7 @@ const Dashboard = () => {
         </div>
         {(user?.role === "admin" || user?.role === "placement_officer") && (
           <button onClick={triggerSync} className="btn btn-outline-primary" data-testid="sync-db-btn">
-            🔄 Sync Data from API
+            Sync Data from API
           </button>
         )}
       </div>
@@ -41,7 +41,6 @@ const Dashboard = () => {
       {/* Analytics Cards Grid */}
       <div className="stats-grid mb-4">
         <Link to="/students" className="card stat-card" data-testid="card-students">
-          <div className="stat-icon">🎓</div>
           <div className="stat-content">
             <h3 className="stat-title">Total Students</h3>
             <p className="stat-value">{students.length}</p>
@@ -49,7 +48,6 @@ const Dashboard = () => {
         </Link>
 
         <Link to="/companies" className="card stat-card" data-testid="card-companies">
-          <div className="stat-icon">🏢</div>
           <div className="stat-content">
             <h3 className="stat-title">Total Companies</h3>
             <p className="stat-value">{companies.length}</p>
@@ -57,7 +55,6 @@ const Dashboard = () => {
         </Link>
 
         <Link to="/drives" className="card stat-card" data-testid="card-drives">
-          <div className="stat-icon">📢</div>
           <div className="stat-content">
             <h3 className="stat-title">Placement Drives</h3>
             <p className="stat-value">{drives.length}</p>
@@ -65,7 +62,6 @@ const Dashboard = () => {
         </Link>
 
         <Link to="/applications" className="card stat-card" data-testid="card-applications">
-          <div className="stat-icon">📝</div>
           <div className="stat-content">
             <h3 className="stat-title">Total Applications</h3>
             <p className="stat-value">{applications.length}</p>
@@ -73,7 +69,6 @@ const Dashboard = () => {
         </Link>
 
         <Link to="/interviews" className="card stat-card" data-testid="card-interviews">
-          <div className="stat-icon">⏰</div>
           <div className="stat-content">
             <h3 className="stat-title">Interviews Scheduled</h3>
             <p className="stat-value">{interviews.length}</p>

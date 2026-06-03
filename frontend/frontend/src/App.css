@@ -75,15 +75,12 @@ body {
   font-size: 24px;
   font-weight: 800;
   text-decoration: none;
-  color: var(--text-primary);
-  background: linear-gradient(135deg, #4f46e5, #06b6d4);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
+  color: var(--primary-color);
   transition: transform 0.2s;
 }
 
 .brand-link:hover {
-  transform: scale(1.02);
+  transform: scale(1.01);
 }
 
 .nav-links {
@@ -233,14 +230,15 @@ h3 {
   border: 1px solid var(--border-color);
   border-radius: var(--radius-md);
   box-shadow: var(--shadow-sm);
-  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  transition: all 0.2s ease-in-out;
   overflow: hidden;
   padding: 24px;
   box-sizing: border-box;
 }
 
 .card:hover {
-  box-shadow: var(--shadow-lg);
+  border-color: var(--primary-color);
+  transform: translateY(-2px);
 }
 
 .card-header {

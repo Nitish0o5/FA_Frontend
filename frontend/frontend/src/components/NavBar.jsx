@@ -15,7 +15,7 @@ const NavBar = () => {
     <nav className="nav-bar">
       <div className="nav-brand">
         <NavLink to="/dashboard" className="brand-link">
-          🚀 Placement Portal
+          Placement Portal
         </NavLink>
       </div>
       <div className="nav-links">
