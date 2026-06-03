@@ -313,8 +313,8 @@ const Drives = () => {
                     <td>{d.location || "N/A"}</td>
                     <td>{d.registrationDeadline ? new Date(d.registrationDeadline).toLocaleDateString() : "N/A"}</td>
                     <td>
-                      {d.rounds?.map((r) => (
-                        <span key={r} className="badge badge-info mr-1">
+                      {d.rounds?.map((r, idx) => (
+                        <span key={`${r}-${idx}`} className="badge badge-info mr-1">
                           {r}
                         </span>
                       ))}

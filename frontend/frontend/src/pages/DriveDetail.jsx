@@ -250,8 +250,8 @@ const DriveDetail = () => {
               <span className="info-label">Recruitment Rounds:</span>
               <div className="skills-tags mt-2">
                 {drive.rounds && drive.rounds.length > 0 ? (
-                  drive.rounds.map((round) => (
-                    <span key={round} className="skill-tag badge badge-info">
+                  drive.rounds.map((round, idx) => (
+                    <span key={`${round}-${idx}`} className="skill-tag badge badge-info">
                       {round}
                     </span>
                   ))
