@@ -36,13 +36,6 @@ export const MovieProvider = ({ children }) => {
   // Refresh all data collections
   const refreshData = useCallback(async () => {
     try {
-      // Sync first
-      try {
-        await api.syncData();
-      } catch (syncErr) {
-        console.warn("Auto-sync failed:", syncErr.message || syncErr);
-      }
-
       const [s, c, d, a, i, placementStats, deptStats, companyStats] = await Promise.all([
         api.getStudents({ limit: 1000 }),
         api.getCompanies({ limit: 1000 }),
